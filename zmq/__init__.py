@@ -50,6 +50,8 @@ from zmq.backend import *
 from zmq import sugar
 from zmq.sugar import *
 from zmq import devices
+import zmq.backend
+import zmq.sugar
 
 def get_includes():
     """Return a list of directories to include for linking against pyzmq with cython."""
@@ -59,5 +61,5 @@ def get_includes():
     return [ parent ] + [ join(parent, base, subdir) for subdir in ('utils',) ]
 
 
-__all__ = ['get_includes'] + sugar.__all__ + backend.__all__
+__all__ = ['get_includes'] + zmq.sugar.__all__ + zmq.backend.__all__
 
